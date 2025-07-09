@@ -1,0 +1,173 @@
+/* ========== GLOBAL SCROLLBAR RESET ========== */
+
+/* Chrome, Safari, Edge: oculta scrollbar */
+*::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  display: none !important;
+  background: transparent;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* ========== WRAPPER GENERAL ========== */
+.proyectos-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ========== SCROLLBAR PERSONALIZADO ========== */
+.scroll-indicador {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 15%;
+  background-color: rgba(255, 255, 255, 0.245);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1000;
+  opacity: 1;
+  transform-origin: right center;
+  transition: opacity 0.4s ease, transform 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+.scroll-indicador.oculto {
+  opacity: 0;
+  transform: scaleY(0.8) translateY(-50%);
+}
+
+.scroll-indicador .agua {
+  background: linear-gradient(to top, #00fff7, #00c3ff);
+  width: 100%;
+  transition: height 0.3s ease;
+  border-radius: 10px;
+}
+
+/* ========== CONTENEDOR PRINCIPAL SCROLL ========== */
+.proyectos-container {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+/* ========== CONTENIDO ========== */
+.proyectos-contenido {
+  display: flex;
+  flex-direction: column;
+}
+
+.proyecto-seccion {
+  scroll-snap-align: start;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* ========== TARJETAS ========== */
+.proyecto-card {
+  width: 80%;
+  max-width: 800px;
+  background-color: black;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.proyecto-card:hover {
+  transform: translateY(-10px);
+}
+
+.proyecto-imagen {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.proyecto-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.proyecto-tipo {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* ========== ICONOS DE DISPOSITIVO ========== */
+.iconos-dispositivo {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 1001;
+  font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+}
+
+.iconos-dispositivo span {
+  transition: all 0.4s ease;
+  color: #ccc;
+}
+
+.iconos-dispositivo span.activo {
+  transform: scale(1.3);
+  color: #00fff7;
+  text-shadow: 0 0 10px #00fff7;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .proyecto-card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .proyecto-imagen {
+    height: 200px;
+  }
+}
+
+/* ========== BODY RESET ========== */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  cursor: default;
+}

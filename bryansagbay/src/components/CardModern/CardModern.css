@@ -1,0 +1,207 @@
+.moderno-container {
+  width: 80%;
+  max-width: auto;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin: 0;
+  will-change: transform, opacity;
+}
+
+.texto {
+  max-width: 800px;
+  margin-top: 10%;
+  flex: 1;
+}
+
+.contador {
+  color: #00f0ff;
+  font-weight: bold;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.texto h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.texto p {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.boton-proyecto {
+  background-color: #00f0ff;
+  color: black;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.boton-proyecto:hover {
+  background-color: #00c7d3;
+}
+
+.tilt-mockup {
+  flex: 2;
+  transform-style: preserve-3d;
+}
+
+/* Main mockup container */
+.mockup {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Laptop mockup */
+.mockup.pc {
+  aspect-ratio: 16 / 10;
+  background-image: url('/src/assets/laptop.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Mobile mockup */
+.mockup.movil {
+  aspect-ratio: 9 / 15;
+  max-height: 620px;
+  width: 100%;
+  background-image: url('/src/assets/mobile.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* El contenedor para la pantalla del dispositivo */
+.mockup-screen {
+  position: absolute;
+  top: 16%;
+  left: 24.4%;
+  width: 51.3%;
+  height: 48.5%;
+  overflow: hidden;
+  border-radius: 2px;
+  transform: translateZ(2px); 
+}
+
+/* Las imágenes deben ocupar todo el espacio disponible */
+.contenido-mockup {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen se ajuste correctamente */
+  object-position: center;
+  display: block;
+}
+
+/* Para PC */
+.mockup.pc .contenido-mockup {
+  background-image: url('/path/to/image.jpg'); /* Si prefieres usar un fondo */
+  background-size: cover; /* Asegura que la imagen cubra el espacio */
+  background-position: center;
+}
+
+/* Para móvil */
+.mockup.movil .contenido-mockup {
+  background-image: url('/path/to/image.jpg'); /* Si prefieres usar un fondo */
+  background-size: cover; /* Asegura que la imagen cubra el espacio */
+  background-position: center;
+}
+
+/* Efecto de luz para imagen de fondo */
+.mockup.pc::before,
+.mockup.movil::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 60px;
+  background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.4) 0%, transparent 0%);
+  filter: blur(20px);
+  z-index: 1;
+  pointer-events: none;
+  animation: brillo-fondo 4s ease-in-out infinite;
+}
+
+/* Animación opcional */
+@keyframes brillo-fondo {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateX(-50%) scaleX(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1.1);
+  }
+}
+
+/* Adjusted mobile mockup screen positioning */
+.mockup.movil .mockup-screen {
+  top: 16%;
+  left: 35.5%;
+  width: 29%;
+  height: 71.9%;
+  border-radius: 3px;
+  border-end-start-radius: 15px;
+  border-end-end-radius: 15px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.fila-invertida {
+  flex-direction: row-reverse;
+}
+
+@media (max-height: 800px) {
+  .mockup.movil {
+    max-height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .moderno-container {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .texto,
+  .tilt-mockup {
+    max-width: 100%;
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .moderno-container {
+    margin: 40px 0;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .moderno-container {
+    flex-direction: column !important;
+    text-align: center;
+    margin: 30px 0;
+    gap: 15px;
+  }
+
+  .texto,
+  .tilt-mockup {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,219 @@
+/* src/components/ArticleDetail/ArticleDetail.css */
+.article-detail {
+    position: relative;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .article-detail.fade-in {
+    animation: fadeIn 0.5s forwards;
+    background: linear-gradient(135deg, #6b1d56, #331c54);
+
+  }
+  
+  .article-detail.fade-out {
+    animation: fadeOut 0.3s forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+  
+  .article-detail.featured {
+    background: linear-gradient(135deg, #6b1d56, #331c54);
+  }
+  
+  .article-detail.featured::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/texture.png');
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  
+  @keyframes fadeInSlide {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .detail-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 200, 255, 0.5) rgba(255, 255, 255, 0.1);
+  }
+  
+  .detail-content::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .detail-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+  
+  .detail-content::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 200, 255, 0.5);
+    border-radius: 10px;
+  }
+  
+  .article-detail .date-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.5s forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+  }
+  
+  .article-detail .date-line {
+    width: 0;
+    height: 2px;
+    background-color: #00c8ff;
+    margin-right: 1rem;
+    animation: expandDateLine 0.8s forwards;
+    animation-delay: 0.2s;
+  }
+  
+  @keyframes expandDateLine {
+    from { width: 0; }
+    to { width: 100px; }
+  }
+  
+  .article-detail .date {
+    color: #00c8ff;
+    font-size: 0.9rem;
+  }
+  
+  .article-detail .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.5s forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .article-detail .description {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    animation: fadeInUp 0.5s forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+  }
+  
+  .article-body {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    animation: fadeInUp 0.5s forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+  }
+  
+  .article-body p {
+    margin-bottom: 1rem;
+  }
+  
+  .article-detail .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeInUp 0.5s forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+  }
+  
+  .article-detail .read-link {
+    color: #00c8ff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+  }
+  
+  .article-detail .read-link:hover {
+    transform: translateX(5px);
+  }
+  
+  .article-detail .arrow {
+    margin-left: 0.5rem;
+  }
+  
+  .article-detail .read-time {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: monospace;
+  }
+  
+  .article-detail-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }

@@ -1,0 +1,67 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  position: relative;
+}
+
+/* Sidebar fija para desktop */
+.sidebar {
+  display: flex;
+}
+
+/* Contenido principal */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #000000;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* Botón hamburguesa oculto por defecto */
+.hamburger {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  background: none;
+  color: white;
+  border: none;
+  z-index: 1001;
+  cursor: pointer;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100%;
+    width: 220px;
+    background-color: #000;
+    z-index: 1000;
+    transition: left 0.3s ease-in-out;
+
+    /* ✅ Agregamos esto para que el contenido no quede debajo del botón hamburguesa */
+    padding-top: 60px;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .main-content {
+    padding-top: 50px;
+    overflow-y: auto;
+  }
+}
+

@@ -1,0 +1,138 @@
+.vertical-navbar {
+  width: 70px;
+  min-width: 70px; /* Evita que se reduzca más de 50px */
+  max-width: 70px; /* Evita que crezca más de 50px */
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  padding-top: 45px;
+  height: 100vh;
+  justify-content: space-between; 
+  z-index: 2; 
+  box-sizing: border-box; /* Asegura que padding no afecte el ancho */
+  overflow: hidden; /* Elimina scroll no deseado */
+}
+
+.vertical-navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    rgba(0, 255, 170, 0) 0%,
+    rgba(0, 255, 170, 0.1) 50%,
+    rgba(0, 255, 170, 0) 100%
+  );
+  pointer-events: none;
+}
+
+/* Contenedor de pestañas (ocupa solo el espacio necesario) */
+.nav-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos horizontalmente */
+  gap: 1.7rem; /* Espacio entre pestañas */
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  flex-grow: 0; 
+}
+
+/* Contenedor de íconos sociales (siempre abajo) */
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1rem 0; 
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0; 
+}
+
+
+.social-icons a {
+  color: #b0b0b0;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+  opacity: 1; /* Por defecto visibles */
+}
+
+.social-icons a.bounce-in {
+  animation: bounce-in 3s ease forwards;
+}
+
+
+.social-icons a:hover {
+  color: #64f2ff;
+}
+
+/* Responsive: móviles */
+@media (max-width: 768px) {
+  .vertical-navbar {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 60px 1rem 1rem 1rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .nav-items {
+    width: 100%;
+    flex-direction: column; /* ✅ en columnas, no fila */
+    gap: 0; /* ✅ elimina espacio excesivo */
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #222;
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .social-icons {
+    display: none;
+  }
+}
+
+/* Anaimacion de iconos sociales*/
+
+@keyframes bounce-in {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(20px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Entrada de iconos sociales*/
+.social-icons a:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.social-icons a:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.social-icons a:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.social-icons a:nth-child(4) {
+  animation-delay: 0.8s;
+}
