@@ -24,10 +24,10 @@ export default function Home() {
   // Función para crear partículas
   const createParticles = () => {
     if (!containerRef.current) return;
-    
+
     const bg = containerRef.current.querySelector('.background-layer');
     if (!bg) return;
-    
+
     // Crear nuevo contenedor de partículas si no existe
     let particlesContainer = bg.querySelector('.particles-container');
     if (!particlesContainer) {
@@ -35,49 +35,49 @@ export default function Home() {
       particlesContainer.className = 'particles-container';
       bg.appendChild(particlesContainer);
     }
-    
+
     // Número de partículas a crear en cada ciclo
     const particlesToCreate = 5;
-    
+
     for (let i = 0; i < particlesToCreate; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
-      
+
       // Posicionar aleatoriamente
       particle.style.left = `${Math.random() * 100}%`;
       particle.style.top = `${Math.random() * 100}%`;
-      
+
       // Asignar dirección de movimiento aleatoria
       const moveX = (Math.random() * 200 - 100);
       const moveY = (Math.random() * 200 - 100);
-      
+
       // Inicia con opacidad 0
       particle.style.opacity = '0';
-      
+
       particle.style.setProperty('--moveX', `${moveX}px`);
       particle.style.setProperty('--moveY', `${moveY}px`);
-      
+
       // Duración aleatoria de la animación entre 8 y 15 segundos
       const duration = 8 + Math.random() * 7;
       particle.style.animationDuration = `${duration}s`;
-      
+
       // Delay aleatorio para que no aparezcan todas a la vez
       particle.style.animationDelay = `${Math.random() * 1}s`;
-      
+
       particlesContainer.appendChild(particle);
-      
+
       // Primero hacemos un fade in suave
       setTimeout(() => {
         particle.style.transition = 'opacity 1.5s ease-in';
         particle.style.opacity = '1';
       }, 50);
-      
+
       // Fade out antes de eliminar para un efecto suave
       setTimeout(() => {
         if (particlesContainer && particle && particlesContainer.contains(particle)) {
           particle.style.transition = 'opacity 4s ease-out';
           particle.style.opacity = '0';
-          
+
           // Eliminar después del fade out
           setTimeout(() => {
             if (particlesContainer && particle && particlesContainer.contains(particle)) {
@@ -93,16 +93,16 @@ export default function Home() {
   useEffect(() => {
     // Crear partículas iniciales
     createParticles();
-    
+
     // Crear nuevas partículas cada cierto tiempo
     const particleInterval = setInterval(() => {
       createParticles();
-    }, 1000); 
-    
+    }, 1000);
+
     return () => {
       clearInterval(particleInterval);
     };
-  }, []); 
+  }, []);
 
   // Configuración base del fondo
   useEffect(() => {
@@ -178,14 +178,13 @@ export default function Home() {
 
             <button className="icon-button">
               <a
-                href={data.cv}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="https://github.com/BryanSagbay/CV_Porfolio/raw/master/bryansagbay/src/template/Bryan_Sagbay_CV.pdf"
                 download="Bryan_Sagbay_CV.pdf"
               >
                 <FaDownload className="button-icon" />
               </a>
             </button>
+
 
             <button
               className="hire-button"
