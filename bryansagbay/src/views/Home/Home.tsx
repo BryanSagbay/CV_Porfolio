@@ -178,7 +178,7 @@ export default function Home() {
 
             <button className="icon-button">
               <a
-                href="https://github.com/BryanSagbay/CV_Porfolio/raw/master/bryansagbay/src/template/Bryan_Sagbay_CV.pdf"
+                href="https://drive.google.com/file/d/1ogYdV3cRW827VzryyHLFyrf-4ev6gcB2/view?usp=sharing"
                 download="Bryan_Sagbay_CV.pdf"
               >
                 <FaDownload className="button-icon" />
