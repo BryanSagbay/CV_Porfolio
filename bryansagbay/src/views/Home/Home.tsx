@@ -179,12 +179,13 @@ export default function Home() {
             <button className="icon-button">
               <a
                 href="https://drive.google.com/file/d/1ogYdV3cRW827VzryyHLFyrf-4ev6gcB2/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 download="Bryan_Sagbay_CV.pdf"
               >
                 <FaDownload className="button-icon" />
               </a>
             </button>
-
 
             <button
               className="hire-button"
