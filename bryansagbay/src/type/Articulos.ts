@@ -4,6 +4,9 @@ export type Article = {
   date: string;
   readTime?: string;
   isFeatured?: boolean;
-  link?: string;
+  link: string;
   article: string;
+  description: string;
+  timeread: string;
+  comingsoon: boolean;
 };
